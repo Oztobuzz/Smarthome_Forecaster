@@ -1,0 +1,69 @@
+import { Fragment } from "react";
+import { Col, Row, Button } from "antd";
+import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
+import DemoLine from "./lineplot.component";
+import SelectTimeSpan from "./selecttimespan.component";
+const style = {
+  padding: "8px 16px",
+  borderRadius: "8px",
+  // margin: '10px'
+};
+
+const StatisticComponent = () => {
+  return (
+    <Fragment>
+      <h2 style={{ ...style, marginTop: "8px", marginBottom: "0px" }}>
+        Your statistics
+      </h2>
+      <div style={{ padding: "0px 16px", margin: "0px" }}>
+        <Row
+          gutter={{
+            xs: 8,
+            sm: 16,
+            md: 24,
+            lg: 32,
+          }}
+        >
+          <Col className="gutter-row" span={10}>
+            <p>26/02/2023 - 04/03/2023</p>
+          </Col>
+          <Col style={{ padding: "0px" }} className="gutter-row" span={5}>
+            <Row
+              style={{ margin: "14px 0px", padding: "0px" }}
+              gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}
+            >
+              <Col className="gutter-row" span={8}>
+                <Button
+                  type="default"
+                  shape="circle"
+                  icon={<ArrowLeftOutlined />}
+                  size={"small"}
+                  style={{ fontSize: "12px" }}
+                />
+              </Col>
+              <Col className="gutter-row" span={8}>
+                <Button
+                  type="default"
+                  shape="circle"
+                  icon={<ArrowRightOutlined />}
+                  size={"small"}
+                  style={{ fontSize: "12px" }}
+                />
+              </Col>
+              <Col className="gutter-row" span={8}></Col>
+            </Row>
+          </Col>
+          <Col className="gutter-row" span={3}></Col>
+          <Col style={style} className="gutter-row" span={6}>
+            <SelectTimeSpan />
+          </Col>
+        </Row>
+      </div>
+      <div style={style}>
+        <DemoLine></DemoLine>
+      </div>
+    </Fragment>
+  );
+};
+
+export default StatisticComponent;
